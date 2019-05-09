@@ -56,7 +56,12 @@ and make sure there are at least 15 photos of each student. Once that is complet
 ./trainModel.sh
 ```
 
-To setup the dashboard...
+To setup the dashboard, create an EC2 instance on AWS and follow the following instructions to set it up: https://docs.aws.amazon.com/efs/latest/ug/gs-step-one-create-ec2-resources.html. Once you've set it up, SSH into the newly 
+made instance and git clone our repository. Once complete, install the dependencies using:
+```
+pip3 install -r requirements.txt
+```
+Afterwards, set up the sql tables and run the apache server using ``` sudo apachectl start ``` 
 
 ## Demo Video
 Link: https://www.youtube.com/watch?v=2fnWXmVOWr8
