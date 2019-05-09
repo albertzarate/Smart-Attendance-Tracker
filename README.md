@@ -1,6 +1,6 @@
 # Smart-Attendance-Tracker
 
-## Structure
+## Code Structure
 
 In this repository, we have two folders: attendance_tracker and dashboard. The code in attendance_tracker is meant 
 to be downloaded and run on the Odroid-XU4Q board. The code in dashboard is meant to be downloaded and run on 
