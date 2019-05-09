@@ -39,7 +39,9 @@ git clone https://github.com/jfath/RPi.GPIO-Odroid
 
 Note: Please clone this in Documents. Otherwise, you will have to change some paths in the code. 
 
+
 To setup the blinker...
+
 
 To start the facial recognition process, run 
 ```
@@ -55,3 +57,6 @@ and make sure there are at least 15 photos of each student. Once that is complet
 ```
 
 To setup the dashboard...
+
+## Demo Video
+Link: 
