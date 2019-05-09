@@ -2,3 +2,7 @@ dlib
 opencv-contrib-python
 imutils
 numpy
+Flask
+Flask-Admin
+enum34==1.1.6 
+flask-cors
