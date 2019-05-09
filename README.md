@@ -61,7 +61,7 @@ made instance and git clone our repository. Once complete, install the dependenc
 ```
 pip3 install -r requirements.txt
 ```
-Afterwards, set up the sql tables and run the apache server using ``` sudo apachectl start ``` 
+Afterwards, set up the sql tables and run the apache server using ``` sudo python app.py ``` 
 
 ## Demo Video
 Link: https://www.youtube.com/watch?v=2fnWXmVOWr8
