@@ -1,0 +1,327 @@
+{% extends 'admin/master.html' %}
+{% import "index.html" as index %}
+{% block body %}
+{{ super() }}
+
+    <head>
+
+<script>
+       {# setTimeout(function(){#}
+       {#window.location.reload(1);#}
+       {# }, 10000);#}
+            const Http = new XMLHttpRequest();
+            const url = 'http://ec2-52-13-158-96.us-west-2.compute.amazonaws.com:9000/';
+            Http.open("GET", url);
+            Http.send();
+            console.log("MAKING GET REQUEST");
+            Http.onreadystatechange = (e) => {
+                let val = Http.responseText;
+                let val_s = val.toString();
+                console.log(val_s);
+                let res_t = val_s.split(":");
+                res = res_t[0].split("/");
+                document.getElementById("totalStudents").textContent = res[0];
+                document.getElementById("totalLate").textContent = res[1];
+                document.getElementById("totalPresent").textContent = res[2];
+                document.getElementById("totalAbsent").textContent = res[3];
+                document.getElementById("top1").textContent = res[4];
+                document.getElementById("top2").textContent = res[6];
+                document.getElementById("top3").textContent = res[8];
+                document.getElementById("late1").textContent = res[5];
+                document.getElementById("late2").textContent = res[7];
+                document.getElementById("late3").textContent = res[9];
+
+                let all = res_t[1].split(" ");
+                console.log(all);
+
+
+        };
+</script>
+      <script>
+              const Http1 = new XMLHttpRequest();
+              const url1 = 'http://ec2-52-13-158-96.us-west-2.compute.amazonaws.com:9000/get_all';
+              Http1.open("GET", url1);
+              Http1.send();
+              console.log("MAKING GET REQUEST");
+              Http1.onreadystatechange = (e) => {
+                  let val = Http1.responseText;
+                  let val_s = val.toString();
+                  let res_t = val_s.split(":");
+                  let id = res_t[0].split("!");
+                  console.log(id)
+                  let name = res_t[1].split("@");
+                  console.log(name)
+                  let present = res_t[2].split("#");
+                  console.log(present)
+                  let late = res_t[3].split("$");
+                  console.log(late)
+                  let absent = res_t[4].split("%");
+                  console.log(absent)
+                  document.getElementById("id1").textContent = id[0].toString();
+                  document.getElementById("id2").textContent = id[1].toString();
+                  console.log("WHERE R U", id[2].toString())
+                  document.getElementById("id3").textContent = id[1].toString();
+                  document.getElementById("id4").textContent = id[3].toString();
+                  document.getElementById("id5").textContent = id[4].toString();
+                  document.getElementById("id6").textContent = id[5].toString();
+                  document.getElementById("id7").textContent = id[6].toString();
+                  document.getElementById("id8").textContent = id[7].toString();
+                  document.getElementById("id9").textContent = id[8].toString();
+
+                  document.getElementById("name1").textContent = name[0].toString();
+                  document.getElementById("name2").textContent = name[1].toString();
+                  document.getElementById("name3").textContent = name[2].toString();
+                  document.getElementById("name4").textContent = name[3].toString();
+                  document.getElementById("name5").textContent = name[4].toString();
+                  document.getElementById("name6").textContent = name[5].toString();
+                  document.getElementById("name7").textContent = name[6].toString();
+                  document.getElementById("name8").textContent = name[7].toString();
+                  document.getElementById("name9").textContent = name[8].toString();
+
+                  document.getElementById("p1").textContent = present[0].toString();
+                  document.getElementById("p2").textContent = present[1].toString();
+                  document.getElementById("p3").textContent = present[2].toString();
+                  document.getElementById("p4").textContent = present[3].toString();
+                  document.getElementById("p5").textContent = present[4].toString();
+                  document.getElementById("p6").textContent = present[5].toString();
+                  document.getElementById("p7").textContent = present[6].toString();
+                  document.getElementById("p8").textContent = present[7].toString();
+                  document.getElementById("p9").textContent = present[8].toString();
+
+                  document.getElementById("l1").textContent = late[0].toString();
+                  document.getElementById("l2").textContent = late[1].toString();
+                  document.getElementById("l3").textContent = late[2].toString();
+                  document.getElementById("l4").textContent = late[3].toString();
+                  document.getElementById("l5").textContent = late[4].toString();
+                  document.getElementById("l6").textContent = late[5].toString();
+                  document.getElementById("l7").textContent = late[6].toString();
+                  document.getElementById("l8").textContent = late[7].toString();
+                  document.getElementById("l9").textContent = late[8].toString();
+
+                  document.getElementById("a1").textContent = absent[0].toString();
+                  document.getElementById("a2").textContent = absent[1].toString();
+                  document.getElementById("a3").textContent = absent[2].toString();
+                  document.getElementById("a4").textContent = absent[3].toString();
+                  document.getElementById("a5").textContent = absent[4].toString();
+                  document.getElementById("a6").textContent = absent[5].toString();
+                  document.getElementById("a7").textContent = absent[6].toString();
+                  document.getElementById("a8").textContent = absent[7].toString();
+                  document.getElementById("a9").textContent = absent[8].toString();
+
+          };
+
+                    window.onload();
+
+        </script>
+    </head>
+    <input type="hidden" id="hiddenVar"/>
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+      Dashboard
+      <small>Control panel</small>
+  </h1>
+  <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Dashboard</li>
+  </ol>
+</section>
+
+<section class="content">
+  <!-- Small boxes (Stat box) -->
+  <div class="row">
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-aqua">
+        <div class="inner">
+          <h3 id="totalStudents"></h3>
+          <p>Total Students</p>
+      </div>
+      <div class="icon">
+          <i class="ion ion-bag"></i>
+      </div>
+  </div>
+</div>
+<!-- ./col -->
+<div class="col-lg-3 col-xs-6">
+  <!-- small box -->
+  <div class="small-box bg-green">
+    <div class="inner">
+      <h3 id="totalLate"></h3>
+
+      <p>Lates Recorded This Week</p>
+  </div>
+  <div class="icon">
+      <i class="ion ion-stats-bars"></i>
+  </div>
+</div>
+</div>
+<!-- ./col -->
+<div class="col-lg-3 col-xs-6">
+  <!-- small box -->
+  <div class="small-box bg-yellow">
+    <div class="inner">
+      <h3 id="totalPresent"></h3>
+
+      <p>Present Attendance Recorded This Week</p>
+  </div>
+  <div class="icon">
+      <i class="ion ion-person-add"></i>
+  </div>
+</div>
+</div>
+<!-- ./col -->
+<div class="col-lg-3 col-xs-6">
+  <!-- small box -->
+  <div class="small-box bg-red">
+    <div class="inner">
+      <h3 id="totalAbsent"></h3>
+
+      <p>Absences Recorded This Week</p>
+  </div>
+  <div class="icon">
+      <i class="ion ion-pie-graph"></i>
+  </div>
+</div>
+</div>
+<!-- ./col -->
+</div>
+
+<!-- /.row -->
+<!-- Main row -->
+<div class="row">
+     <!-- solid sales graph -->
+<div class="box box-solid bg-teal-gradient">
+    <div class="box-header">
+      <i class="fa fa-th"></i>
+
+      <h3 class="box-title">Attendance Trends</h3>
+
+      <div class="box-tools pull-right">
+        <button type="button" class="btn bg-teal btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        </button>
+    </div>
+</div>
+<div class="box-body border-radius-none">
+  <div class="chart" id="line-chart" style="height: 250px;"></div>
+</div>
+    <!-- Left col -->
+    <section class="col-lg-7 connectedSortable">
+      <!-- Custom tabs (Charts with tabs)-->
+      <div class="nav-tabs-custom">
+        <!-- Tabs within a box -->
+        <ul class="nav nav-tabs pull-right">
+
+      </ul>
+      <div class="tab-content no-padding">
+          <!-- Morris chart - Sales -->
+          <div class="" id="revenue-chart" style="position: relative; height: 0px;"></div>
+      </div>
+  </div>
+  <!-- /.nav-tabs-custom -->
+
+<!-- TO DO List -->
+<div class="box box-primary">
+    <div class="box-header">
+      <i class="ion ion-clipboard"></i>
+
+      <h3 class="box-title">Top Students with Best Attendance</h3>
+
+
+</div>
+<!-- /.box-header -->
+<div class="box-body">
+  <ul class="todo-list">
+    <li>
+
+    <!-- todo text -->
+    <span id="top1" class="text"></span>
+    <!-- Emphasis label -->
+    <small class="label label-danger"><i id="late1" class="fa fa-clock-o"></i></small>
+
+</li>
+<li>
+
+<span id="top2" class="text"></span>
+<small class="label label-danger"><i id="late2" class="fa fa-clock-o"></i></small>
+<div class="tools">
+    <i class="fa fa-edit"></i>
+    <i class="fa fa-trash-o"></i>
+</div>
+</li>
+<li>
+
+<span id="top3" class="text"></span>
+<small class="label label-danger"><i id="late3" class="fa fa-clock-o"></i></small>
+
+</li>
+
+</ul>
+</div>
+<!-- /.box-body -->
+<div class="box-footer clearfix no-border">
+    <a href="http://ec2-52-13-158-96.us-west-2.compute.amazonaws.com:9000/view_students" input="submit" class="btn btn-danger pull-right" type="button"><i class="fa fa-plus"></i> View All Students</a>
+</div>
+</div>
+<!-- /.box -->
+
+
+</div>
+<!-- /.box -->
+
+
+<!-- /.box-body -->
+<div class="box-footer no-border">
+  <div class="row">
+    <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+      <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60" data-fgColor="#39CCCC">
+
+      <div class="knob-label">Present Last Week</div>
+  </div>
+  <!-- ./col -->
+  <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+      <input type="text" class="knob" data-readonly="true" value="5" data-width="60" data-height="60" data-fgColor="#39CCCC">
+
+      <div class="knob-label">Lates Last Week</div>
+  </div>
+  <!-- ./col -->
+  <div class="col-xs-4 text-center">
+      <input type="text" class="knob" data-readonly="true" value="0" data-width="60" data-height="60" data-fgColor="#39CCCC">
+
+      <div class="knob-label">Absences Last Week</div>
+  </div>
+  <!-- ./col -->
+</div>
+<!-- /.row -->
+</div>
+<!-- /.box-footer -->
+</div>
+<!-- /.box -->
+
+<!-- Calendar -->
+    <div>
+
+
+
+    </div>
+
+</div>
+<!-- /.col -->
+</div>
+<!-- /.row -->
+</div>
+</div>
+<!-- /.box -->
+
+</section>
+<!-- right col -->
+</div>
+<!-- /.row (main row) -->
+
+</section>
+<!-- /.content -->
+
+
+  {% endblock body %}
