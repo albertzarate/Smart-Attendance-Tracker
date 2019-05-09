@@ -2,8 +2,8 @@
 
 ## Code Structure
 
-In this repository, we have two folders: attendance_tracker and dashboard. The code in attendance_tracker is meant 
-to be downloaded and run on the Odroid-XU4Q board. The code in dashboard is meant to be downloaded and run on 
+In this repository, we have two folders: attendance_tracker and attendance_dashboard. The code in attendance_tracker is meant 
+to be downloaded and run on the Odroid-XU4Q board. The code in attendance_dashboard is meant to be downloaded and run on 
 an AWS EC2 instance. The attendance_tracker code utilizes a webcam to take photos of students walking by and runs
 these images through three computer vision models (facial detection, facial tilting, and facial recognition). Multiple
 threads are utilized to make sure the preprocessing and facial recognition processes do not interrupt the image captures.
@@ -61,7 +61,7 @@ made instance and git clone our repository. Once complete, install the dependenc
 ```
 pip3 install -r requirements.txt
 ```
-Afterwards, set up the sql tables and run the apache server using ``` sudo python app.py ``` 
+Afterwards, set up the sql tables and ```cd attendance_dashboard``` and ``` sudo python app.py ```
 
 ## Demo Video
 Link: https://www.youtube.com/watch?v=2fnWXmVOWr8
