@@ -40,7 +40,7 @@ git clone https://github.com/jfath/RPi.GPIO-Odroid
 Note: Please clone this in Documents. Otherwise, you will have to change some paths in the code. 
 
 
-To setup the blinker...
+To setup the blinker, you will need to make the circuit located on this link: https://ibb.co/88JPtFX. The circuit requires stepping up the voltage from 1.6v(odroid output) to 5V (LED light input) in order to turn on the LED. Once the circuit is complete, change directory into the repo RPI.GPIO-Odroid and run "sudo python build clean" followed by "sudo python setup.py build" on the terminal. This will begin installing and linking the GPIO pins to python software allowing control. 
 
 
 To start the facial recognition process, run 
@@ -59,4 +59,4 @@ and make sure there are at least 15 photos of each student. Once that is complet
 To setup the dashboard...
 
 ## Demo Video
-Link: 
+Link: https://www.youtube.com/watch?v=2fnWXmVOWr8
